@@ -20,6 +20,10 @@
 [branch]
 	sort = "-committerdate"
 
+[push]
+	default = current
+	autoSetupRemote = true
+
 [color]
 	branch = "auto"
 	diff = "auto"
@@ -108,8 +112,3 @@
 
 [tag]
 	sort = "version:refname"
-
-[user]
-	email = "caarlos0@users.noreply.github.com"
-	name = "Carlos Alexandro Becker"
-	signingKey = "~/.ssh/id_ed25519"

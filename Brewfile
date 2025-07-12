@@ -1,15 +1,14 @@
-tap "caarlos0/tap"
-tap "charmbracelet/tap"
-tap "dagger/tap"
-tap "goreleaser/tap"
-tap "homebrew/bundle"
-tap "nikitabobko/tap"
-tap "tinygo-org/tools"
 brew "bash-completion@2"
 brew "btop"
+brew "caarlos0/tap/svu"
+brew "charmbracelet/tap/freeze"
+brew "charmbracelet/tap/glow"
+brew "charmbracelet/tap/gum"
+brew "charmbracelet/tap/mods"
+brew "charmbracelet/tap/vhs"
 brew "coreutils"
 brew "curl"
-brew "sqlite"
+brew "dagger/tap/dagger"
 brew "deno"
 brew "entr"
 brew "fd"
@@ -29,8 +28,8 @@ brew "hugo"
 brew "imagemagick"
 brew "jq"
 brew "kind"
-brew "kubernetes-cli"
 brew "kubectx"
+brew "kubernetes-cli"
 brew "kustomize"
 brew "lsd"
 brew "lua-language-server"
@@ -46,26 +45,28 @@ brew "ripgrep"
 brew "rustup"
 brew "scc"
 brew "shellcheck"
+brew "sqlite"
 brew "stern"
 brew "stylua"
 brew "syft"
 brew "tailwindcss"
 brew "tailwindcss-language-server"
 brew "terminal-notifier"
+brew "tinygo-org/tools/tinygo"
 brew "tmux"
 brew "uv"
 brew "watch"
 brew "wget"
 brew "zig"
 brew "zoxide"
-brew "caarlos0/tap/svu"
-brew "charmbracelet/tap/freeze"
-brew "charmbracelet/tap/glow"
-brew "charmbracelet/tap/gum"
-brew "charmbracelet/tap/mods"
-brew "charmbracelet/tap/vhs"
-brew "dagger/tap/dagger"
-brew "tinygo-org/tools/tinygo"
+brew 'asdf'
+brew 'bufbuild/buf/buf'
+brew 'hashicorp/tap/terraform-ls'
+brew 'jq'
+brew 'node'
+brew 'gpg2'
+brew 'gnupg'
+brew 'pinentry-mac'
 cask "1password"
 cask "appcleaner"
 cask "claude"
@@ -94,16 +95,10 @@ cask "todoist"
 cask "vlc"
 cask "whatsapp"
 cask "zoom"
-mas "1Password for Safari", id: 1569813296
-mas "Capture", id: 6458535284
-mas "Color Picker", id: 1545870783
-mas "Debit & Credit", id: 882637653
-mas "HEIC Converter", id: 1294126402
-mas "Keynote", id: 409183694
-mas "Lungo", id: 1263070803
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Parcel", id: 639968404
-mas "Reeder", id: 1529448980
-mas "Tailscale", id: 1475387142
-mas "Today", id: 6443714928
+tap "caarlos0/tap"
+tap "charmbracelet/tap"
+tap "dagger/tap"
+tap "goreleaser/tap"
+tap "homebrew/bundle"
+tap "nikitabobko/tap"
+tap "tinygo-org/tools"

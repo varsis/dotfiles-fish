@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
+#if [[ $OSTYPE == 'darwin'* ]]; then
+#  brew bundle
+#fi
+
 link() {
   mkdir -p "$(dirname "$2")"
   if [ -e "$2" ]; then
@@ -41,16 +45,12 @@ nvim --headless "+Lazy! sync" +qa &>/dev/null
 
 # other apps
 link $PWD/.editorconfig ~/.editorconfig
-link $PWD/hammerspoon/init.lua /Users/carlos/.hammerspoon/init.lua
+link $PWD/hammerspoon/init.lua ~/.hammerspoon/init.lua
 link $PWD/git/config ~/.config/git/config
 link $PWD/git/gitignore ~/.config/git/ignore
 link $PWD/gh/config.yml ~/.config/gh/config.yml
 link $PWD/gh-dash/config ~/.config/gh-dash/config.yml
 link $PWD/fd/ignore ~/.config/fd/ignore
-
-if [[ $OSTYPE == 'darwin'* ]] then
-  brew bundle
-fi
 
 # Fish setup
 if ! grep -q fish /etc/shells; then

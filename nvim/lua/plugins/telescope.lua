@@ -62,7 +62,7 @@ return {
     end
     return {
       {
-        "<C-p>",
+        "<leader>f",
         function()
           require("telescope.builtin").find_files(ivy({
             find_command = {
