@@ -1,6 +1,6 @@
 vim.opt.compatible = false
 vim.opt.termsync = true
--- vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 vim.opt.hidden = true
 vim.opt.updatetime = 1000 -- faster update times, default 4000
 vim.opt.mouse = "a"
