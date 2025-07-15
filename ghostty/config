@@ -61,3 +61,6 @@ keybind = cmd+9=text:\x029
 keybind = shift+cmd+d=text:\x02u
 keybind = ctrl+tab=text:\x02n
 keybind = shift+ctrl+tab=text:\x02p
+
+# Bind for # on UK keyboard
+keybind = alt+3=text:\x23
