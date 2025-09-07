@@ -19,6 +19,10 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-github.nvim",
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
+    },
   },
   opts = {
     defaults = {
@@ -55,6 +59,7 @@ return {
     telescope.setup(opts)
     telescope.load_extension("gh")
     telescope.load_extension("harpoon")
+    telescope.load_extension("fzf")
   end,
   keys = function()
     local function ivy(opts)
