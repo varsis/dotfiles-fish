@@ -45,10 +45,13 @@ vim.opt.background = "dark"
 vim.opt.termguicolors = true
 vim.opt.shortmess:append("c")
 
+-- Disable concealing (hiding text with dots/symbols)
+vim.opt.conceallevel = 0
+
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = ""
-vim.opt.foldlevelstart = 1
+vim.opt.foldlevelstart = 2
 vim.opt.foldnestmax = 4
 
 vim.g.fugitive_legacy_commands = 0
@@ -57,6 +60,14 @@ vim.filetype.add({
   extension = {
     tape = "vhs",
   },
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufNew", "BufNewFile", "BufWinEnter" }, {
+  group = vim.api.nvim_create_augroup("TS_FOLD_WORKAROUND", {}),
+  callback = function()
+    vim.opt.foldmethod = "expr"
+    vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+  end,
 })
 
 vim.cmd([[

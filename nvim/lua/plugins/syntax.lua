@@ -6,15 +6,6 @@ return {
   main = "nvim-treesitter.configs",
   dependencies = {
     {
-      "lukas-reineke/indent-blankline.nvim",
-      main = "ibl",
-      opts = {
-        indent = { char = "│" },
-        exclude = { filetypes = { "help" } },
-        scope = { enabled = false },
-      },
-    },
-    {
       "wansmer/treesj",
       opts = {},
       keys = {
@@ -31,6 +22,15 @@ return {
       "windwp/nvim-autopairs",
       opts = {
         check_ts = true,
+      },
+    },
+    {
+      "lukas-reineke/indent-blankline.nvim",
+      main = "ibl",
+      opts = {
+        indent = { char = "│" },
+        exclude = { filetypes = { "help" } },
+        scope = { enabled = false },
       },
     },
     {
@@ -94,6 +94,8 @@ return {
       "http",
       "ini",
       "javascript",
+      "typescript",
+      "tsx",
       "jq",
       "json",
       "lua",
