@@ -28,6 +28,8 @@ return {
           "ts_ls",
           "yamlls",
           "zls",
+          "eslint-lsp",
+          "eslint_d",
         },
       },
     },
@@ -177,6 +179,21 @@ return {
       },
     })
 
+    lspconfig.eslint.setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        keymaps.on_attach(bufnr)
+
+        -- Optionally format on save if eslint supports it
+        if client.server_capabilities.documentFormattingProvider then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll", -- Requires eslint.nvim or custom command
+          })
+        end
+      end,
+    })
+
     -- Make runtime files discoverable to the server
     local runtime_path = vim.split(package.path, ";", {})
     table.insert(runtime_path, "lua/?.lua")
@@ -202,6 +219,7 @@ return {
       style = "minimal",
       border = "none",
       source = "if_many",
+      max_width = 80,
     }
 
     -- setup diagnostics
@@ -215,6 +233,22 @@ return {
     vim.lsp.buf.hover(float_config)
     vim.lsp.buf.signature_help(float_config)
     vim.highlight.priorities.semantic_tokens = 95
+
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+      border = "rounded", -- optional
+      max_width = 80,     -- forces line wrapping
+      wrap = true,
+    })
+
+    -- Also ensure wrapping is enabled for floating windows:
+    vim.api.nvim_create_autocmd("BufWinEnter", {
+      callback = function()
+        local config = vim.api.nvim_win_get_config(0)
+        if config and config.relative ~= "" then
+          vim.wo.wrap = true
+        end
+      end,
+    })
 
     -- set up diagnostic signs
     vim.diagnostic.config({
