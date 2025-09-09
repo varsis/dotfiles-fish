@@ -85,6 +85,8 @@ status is-interactive; and begin
     # Use VI bindings
     fish_vi_key_bindings
 
+    bind \ee edit_command_line
+
     # traps the shell quit and switch to the last session if it's the last pane
     # if last session is not available anymore, switch to default
     function __trap_exit_tmux
