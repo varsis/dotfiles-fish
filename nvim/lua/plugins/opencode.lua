@@ -45,5 +45,13 @@ return {
 
     -- Example: keymap for custom prompt
     -- vim.keymap.set('n', '<leader>oe', function() require('opencode').prompt('Explain @cursor and its context') end, { desc = 'Explain this code' })
+    local opencode = require("opencode")
+    local original_on_buf = opencode.on_buf
+    opencode.on_buf = function(_, data)
+      if data and data[1] and data[1]:match("^TmuxNavigate") then
+        return
+      end
+      return original_on_buf(_, data)
+    end
   end,
 }
