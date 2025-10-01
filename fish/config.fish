@@ -127,3 +127,10 @@ end
 if test -f ~/.localrc.fish
     source ~/.localrc.fish
 end
+
+# pnpm
+set -gx PNPM_HOME "/Users/chris/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

@@ -106,3 +106,5 @@ result-*
 ###
 # custom stuff
 coverage.txt
+
+**/.claude/settings.local.json

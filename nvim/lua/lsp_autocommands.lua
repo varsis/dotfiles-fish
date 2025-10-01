@@ -73,13 +73,6 @@ M.setup = function()
       if client:supports_method(ms.textDocument_codeLens, vim.api.nvim_get_current_buf()) then
         vim.lsp.inlay_hint.enable(true)
       end
-
-      -- Set buffer-local keymap for K
-      local opts = { buffer = args.buf, noremap = true, silent = true }
-      vim.keymap.set("n", "K", function()
-        vim.lsp.buf.hover()
-        vim.diagnostic.open_float()
-      end, opts)
     end,
   })
   vim.api.nvim_create_autocmd("LspDetach", {
@@ -169,6 +162,8 @@ M.setup = function()
     end,
     group = group,
   })
+
+  vim.lsp.set_log_level("off")
 end
 
 return M
