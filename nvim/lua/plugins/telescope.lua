@@ -19,6 +19,8 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-github.nvim",
+    "nvim-orgmode/orgmode",
+    "telescope-orgmode.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
@@ -60,11 +62,13 @@ return {
     telescope.load_extension("gh")
     telescope.load_extension("harpoon")
     telescope.load_extension("fzf")
+    telescope.load_extension("orgmode")
   end,
   keys = function()
     local function ivy(opts)
       return require("telescope.themes").get_ivy(opts)
     end
+
     return {
       {
         "<leader>ff",
@@ -144,6 +148,34 @@ return {
         "<leader>fj",
         function()
           require("telescope").extensions.harpoon.marks(ivy())
+        end,
+      },
+      {
+        "<leader>r",
+        function()
+          require("telescope").extensions.orgmode.refile_heading()
+        end,
+      },
+      {
+        "<leader>fh",
+        function()
+          require("telescope").extensions.orgmode.search_headings()
+        end,
+      },
+      {
+        "<leader>li",
+        function()
+          require("telescope").extensions.orgmode.insert_link()
+        end,
+      },
+      {
+        "<leader>wf",
+        function()
+          require("telescope.builtin").find_files({
+            prompt_title = "Journal Entries",
+            cwd = vim.fn.expand("~/orgfiles/journal"),
+            find_command = { "find", ".", "-name", "*.org", "-type", "f" },
+          })
         end,
       },
     }

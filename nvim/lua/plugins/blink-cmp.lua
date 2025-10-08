@@ -76,7 +76,15 @@ return {
     },
     sources = {
       default = { "lsp", "path", "snippets", "buffer", "copilot" },
+      per_filetype = {
+        org = { "orgmode" },
+      },
       providers = {
+        orgmode = {
+          name = "Orgmode",
+          module = "orgmode.org.autocompletion.blink",
+          fallbacks = { "buffer" },
+        },
         lsp = {
           min_keyword_length = 0,
           score_offset = 0,
