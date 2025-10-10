@@ -81,8 +81,8 @@ return {
       },
       mappings = {
         global = {
-          org_agenda = "<C-a>",  -- instead of \oa
-          org_capture = "<C-c>", -- instead of \oc
+          org_agenda = "<leader>aa",  -- instead of \oa
+          org_capture = "<leader>cc", -- instead of \oc
         },
         agenda = {
           org_agenda_later = "L",

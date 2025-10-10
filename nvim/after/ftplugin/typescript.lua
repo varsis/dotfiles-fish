@@ -1,5 +1,5 @@
 -- TypeScript specific settings
-vim.opt_local.foldlevel = 0
+vim.opt_local.foldlevel = 99
 vim.opt_local.foldnestmax = 3
 
 -- Auto-fold specific patterns

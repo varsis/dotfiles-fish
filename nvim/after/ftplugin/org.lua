@@ -1,6 +1,8 @@
 -- Ensure orgmode is loaded for .org files
 vim.bo.filetype = "org"
 
+vim.opt_local.foldlevel = 99
+
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "*.org",
   callback = function()
