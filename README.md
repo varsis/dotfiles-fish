@@ -82,6 +82,7 @@ version here!
 - `,w` - Finalize capture
 - `,r` - Refile capture to different location
 - `,x` - Toggle checkbox `[ ]` ↔ `[X]` (in org files)
+- `,d` - Mark TODO as DONE instantly (adds CLOSED timestamp)
 
 #### Agenda & Views
 - `,aa` - Open agenda view

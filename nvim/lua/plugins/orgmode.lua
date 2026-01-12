@@ -16,8 +16,19 @@ return {
     local function get_journal_files()
       local journal_dir = vim.fn.expand("~/orgfiles/journal")
       local files = vim.fn.glob(journal_dir .. "/*.org", false, true)
-      table.sort(files)
-      return files
+
+      -- Filter out weekly reviews and other non-daily files
+      local daily_files = {}
+      for _, file in ipairs(files) do
+        local filename = vim.fn.fnamemodify(file, ":t")
+        -- Only include files matching YYYY-MM-DD.org pattern
+        if filename:match("^%d%d%d%d%-%d%d%-%d%d%.org$") then
+          table.insert(daily_files, file)
+        end
+      end
+
+      table.sort(daily_files)
+      return daily_files
     end
 
     local function navigate_journal_files(direction)
@@ -329,10 +340,11 @@ return {
       create_weekly_review()
     end, { desc = "Create weekly review" })
 
-    -- Checkbox toggle for org files (set as autocommand for org filetype)
+    -- Checkbox toggle and TODO shortcuts for org files (set as autocommand for org filetype)
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "org",
       callback = function()
+        -- Toggle checkbox
         vim.keymap.set("n", "<Leader>x", function()
           local line = vim.api.nvim_get_current_line()
           local new_line
@@ -346,6 +358,28 @@ return {
           vim.api.nvim_set_current_line(new_line)
           vim.cmd("stopinsert")
         end, { desc = "Toggle checkbox", buffer = true })
+
+        -- Mark TODO as DONE
+        vim.keymap.set("n", "<Leader>d", function()
+          local line = vim.api.nvim_get_current_line()
+          local todo_states = { "TODO", "NEXT", "WAITING", "SOMEDAY", "PROJECT", "IN_PROGRESS" }
+          local new_line = line
+
+          for _, state in ipairs(todo_states) do
+            if line:match("^%s*%*+ " .. state .. " ") then
+              new_line = line:gsub("^(%s*%*+ )" .. state .. " ", "%1DONE ")
+              -- Add CLOSED timestamp
+              local timestamp = os.date("[%Y-%m-%d %a %H:%M]")
+              if not new_line:match("CLOSED:") then
+                new_line = new_line:gsub("^(%s*%*+ DONE [^\n]+)", "%1 CLOSED: " .. timestamp)
+              end
+              vim.api.nvim_set_current_line(new_line)
+              vim.notify("Marked as DONE", vim.log.levels.INFO)
+              return
+            end
+          end
+          vim.notify("No TODO state found on this line", vim.log.levels.WARN)
+        end, { desc = "Mark TODO as DONE", buffer = true })
       end,
     })
 
