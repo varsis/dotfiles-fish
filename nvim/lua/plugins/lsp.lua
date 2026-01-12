@@ -54,11 +54,14 @@ return {
       keymaps.on_attach(bufnr)
     end
 
-    local lspconfig = require("lspconfig")
-    require("lspconfig.ui.windows").default_options.border = "none"
-    lspconfig.gopls.setup({
+    -- Set global defaults for all LSP servers
+    vim.lsp.config('*', {
       capabilities = capabilities,
       on_attach = on_attach,
+    })
+
+    -- Configure gopls
+    vim.lsp.config('gopls', {
       settings = {
         gopls = {
           gofumpt = true,
@@ -95,10 +98,10 @@ return {
         debounce_text_changes = 150,
       },
     })
+    vim.lsp.enable('gopls')
 
-    lspconfig.ts_ls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+    -- Configure ts_ls
+    vim.lsp.config('ts_ls', {
       settings = {
         javascript = {
           inlayHints = {
@@ -124,7 +127,9 @@ return {
         },
       },
     })
+    vim.lsp.enable('ts_ls')
 
+    -- Enable servers with default config
     for _, lsp in ipairs({
       "bashls",
       "clangd",
@@ -138,23 +143,19 @@ return {
       "tflint",
       "zls",
     }) do
-      lspconfig[lsp].setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-      })
+      vim.lsp.enable(lsp)
     end
 
+    -- Configure html and htmx with custom filetypes
     for _, lsp in ipairs({ "html", "htmx" }) do
-      lspconfig[lsp].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
+      vim.lsp.config(lsp, {
         filetypes = { "html", "templ" },
       })
+      vim.lsp.enable(lsp)
     end
 
-    lspconfig.tailwindcss.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
+    -- Configure tailwindcss
+    vim.lsp.config('tailwindcss', {
       filetypes = { "html", "templ", "javascript" },
       settings = {
         tailwindCSS = {
@@ -164,10 +165,10 @@ return {
         },
       },
     })
+    vim.lsp.enable('tailwindcss')
 
-    lspconfig.yamlls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+    -- Configure yamlls
+    vim.lsp.config('yamlls', {
       settings = {
         yaml = {
           schemaStore = {
@@ -177,9 +178,10 @@ return {
         },
       },
     })
+    vim.lsp.enable('yamlls')
 
-    lspconfig.eslint.setup({
-      capabilities = capabilities,
+    -- Configure eslint with custom on_attach
+    vim.lsp.config('eslint', {
       on_attach = function(client, bufnr)
         keymaps.on_attach(bufnr)
 
@@ -192,14 +194,10 @@ return {
         end
       end,
     })
+    vim.lsp.enable('eslint')
 
-    -- Make runtime files discoverable to the server
-    local runtime_path = vim.split(package.path, ";", {})
-    table.insert(runtime_path, "lua/?.lua")
-    table.insert(runtime_path, "lua/?/init.lua")
-    lspconfig.lua_ls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
+    -- Configure lua_ls
+    vim.lsp.config('lua_ls', {
       settings = {
         Lua = {
           completion = {
@@ -212,6 +210,7 @@ return {
         },
       },
     })
+    vim.lsp.enable('lua_ls')
 
     local float_config = {
       focusable = true,

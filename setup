@@ -51,6 +51,7 @@ link $PWD/git/gitignore ~/.config/git/ignore
 link $PWD/gh/config.yml ~/.config/gh/config.yml
 link $PWD/gh-dash/config ~/.config/gh-dash/config.yml
 link $PWD/fd/ignore ~/.config/fd/ignore
+link $PWD/claude ~/.claude
 
 # Fish setup
 if ! grep -q fish /etc/shells; then
