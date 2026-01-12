@@ -178,6 +178,149 @@ return {
           })
         end,
       },
+      {
+        "<leader>wR",
+        function()
+          require("telescope.builtin").find_files({
+            prompt_title = "Weekly Reviews",
+            cwd = vim.fn.expand("~/orgfiles/journal"),
+            find_command = { "find", ".", "-name", "weekly-review-*.org", "-type", "f" },
+          })
+        end,
+        desc = "Browse weekly reviews",
+      },
+      {
+        "<leader>wi",
+        function()
+          vim.cmd("edit " .. vim.fn.expand("~/orgfiles/refile.org"))
+        end,
+        desc = "Open inbox (refile.org)",
+      },
+      {
+        "<leader>wo",
+        function()
+          require("telescope.builtin").find_files(ivy({
+            prompt_title = "All Org Files",
+            cwd = vim.fn.expand("~/orgfiles"),
+            find_command = { "find", ".", "-name", "*.org", "-type", "f" },
+          }))
+        end,
+        desc = "Browse all org files",
+      },
+      {
+        "<leader>ft",
+        function()
+          require("telescope.builtin").live_grep(ivy({
+            prompt_title = "All TODOs",
+            search_dirs = {
+              vim.fn.expand("~/orgfiles/journal"),
+              vim.fn.expand("~/orgfiles/refile.org"),
+              vim.fn.expand("~/orgfiles/projects.org"),
+              vim.fn.expand("~/orgfiles/areas.org"),
+            },
+            default_text = "^\\*\\* (TODO|IN_PROGRESS)",
+            additional_args = function()
+              return { "--pcre2" }
+            end,
+          }))
+        end,
+        desc = "Find all TODOs",
+      },
+      {
+        "<leader>fT",
+        function()
+          require("telescope.builtin").live_grep(ivy({
+            prompt_title = "All Tasks",
+            search_dirs = {
+              vim.fn.expand("~/orgfiles/journal"),
+              vim.fn.expand("~/orgfiles/refile.org"),
+              vim.fn.expand("~/orgfiles/projects.org"),
+              vim.fn.expand("~/orgfiles/areas.org"),
+            },
+            default_text = "^\\*\\* (TODO|IN_PROGRESS|DONE|CANCELLED)",
+            additional_args = function()
+              return { "--pcre2" }
+            end,
+          }))
+        end,
+        desc = "Find all tasks (including DONE)",
+      },
+      {
+        "<leader>fn",
+        function()
+          require("telescope.builtin").live_grep(ivy({
+            prompt_title = "Next Actions",
+            search_dirs = {
+              vim.fn.expand("~/orgfiles/journal"),
+              vim.fn.expand("~/orgfiles/refile.org"),
+              vim.fn.expand("~/orgfiles/projects.org"),
+              vim.fn.expand("~/orgfiles/areas.org"),
+            },
+            default_text = "^\\*\\* NEXT",
+            additional_args = function()
+              return { "--pcre2" }
+            end,
+          }))
+        end,
+        desc = "Find NEXT actions",
+      },
+      {
+        "<leader>fw",
+        function()
+          require("telescope.builtin").live_grep(ivy({
+            prompt_title = "Waiting For",
+            search_dirs = {
+              vim.fn.expand("~/orgfiles/journal"),
+              vim.fn.expand("~/orgfiles/refile.org"),
+              vim.fn.expand("~/orgfiles/projects.org"),
+              vim.fn.expand("~/orgfiles/areas.org"),
+            },
+            default_text = "^\\*\\* WAITING",
+            additional_args = function()
+              return { "--pcre2" }
+            end,
+          }))
+        end,
+        desc = "Find WAITING items",
+      },
+      {
+        "<leader>fp",
+        function()
+          require("telescope.builtin").live_grep(ivy({
+            prompt_title = "Projects",
+            search_dirs = {
+              vim.fn.expand("~/orgfiles/journal"),
+              vim.fn.expand("~/orgfiles/refile.org"),
+              vim.fn.expand("~/orgfiles/projects.org"),
+              vim.fn.expand("~/orgfiles/areas.org"),
+            },
+            default_text = "^\\*\\* PROJECT",
+            additional_args = function()
+              return { "--pcre2" }
+            end,
+          }))
+        end,
+        desc = "Find all projects",
+      },
+      {
+        "<leader>fs",
+        function()
+          require("telescope.builtin").live_grep(ivy({
+            prompt_title = "Someday/Maybe",
+            search_dirs = {
+              vim.fn.expand("~/orgfiles/journal"),
+              vim.fn.expand("~/orgfiles/refile.org"),
+              vim.fn.expand("~/orgfiles/projects.org"),
+              vim.fn.expand("~/orgfiles/areas.org"),
+            },
+            default_text = "^\\*\\* SOMEDAY",
+            additional_args = function()
+              return { "--pcre2" }
+            end,
+          }))
+        end,
+        desc = "Find SOMEDAY items",
+      },
     }
   end,
 }

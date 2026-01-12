@@ -31,6 +31,28 @@ M.on_attach = function(bufnr)
   keymap("<leader>D", telescope("type_definitions"), bufnr)
   keymap("grl", vim.lsp.codelens.run, bufnr)
   keymap("gl", vim.diagnostic.open_float, bufnr)
+  keymap("<leader>ld", function()
+    local ivy = require("telescope.themes").get_ivy()
+    require("telescope.builtin").diagnostics(vim.tbl_extend("force", ivy, { bufnr = 0 }))
+  end, bufnr)
+  keymap("<leader>ca", vim.lsp.buf.code_action, bufnr)
+  keymap("<leader>rn", vim.lsp.buf.rename, bufnr)
+  keymap("<leader>f", vim.lsp.buf.format, bufnr)
+  keymap("<leader>oi", function()
+    vim.lsp.buf.execute_command({
+      command = "_typescript.organizeImports",
+      arguments = { vim.api.nvim_buf_get_name(0) }
+    })
+  end, bufnr)
+  keymap("<leader>ai", function()
+    vim.lsp.buf.execute_command({
+      command = "_typescript.addMissingImports",
+      arguments = { vim.api.nvim_buf_get_name(0) }
+    })
+  end, bufnr)
+  keymap("<leader>ih", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  end, bufnr)
   keymap("[d", function()
     vim.diagnostic.jump({ count = -1 })
     vim.cmd("norm zz")

@@ -57,6 +57,93 @@ version here!
 - `,jf` - Format JSON with jq
 - `,x` - Toggle markdown checkbox
 
+### Org-mode & GTD (Getting Things Done)
+
+#### Journal Navigation
+- `,ww` - Open today's journal
+- `,w,i` - Open today's journal (alternative)
+- `,wt` - Create journal for specific date
+- `<C-Up>` - Navigate to previous journal entry
+- `<C-Down>` - Navigate to next journal entry
+- `,wf` - Browse all journal entries (Telescope)
+- `,wR` - Browse all weekly reviews (Telescope)
+- `,wi` - Open inbox (refile.org)
+- `,wo` - Browse all org files (Telescope)
+
+#### Task Management
+- `,wT` - Add task for specific date (prompts for state and description)
+- `,cc` - Open capture menu
+  - `i` or `t` - Quick TODO to inbox (process later)
+  - `n` - NEXT action (with tag prompt, scheduled today)
+  - `j` - Journal entry (today's journal)
+  - `p` - New PROJECT (creates in projects.org)
+  - `r` - Reference note (saves to reference.org)
+  - `m` - Meeting notes (structured template in today's journal)
+- `,w` - Finalize capture
+- `,r` - Refile capture to different location
+- `,x` - Toggle checkbox `[ ]` ↔ `[X]` (in org files)
+
+#### Agenda & Views
+- `,aa` - Open agenda view
+  - Press `n` - View NEXT actions
+  - Press `w` - View WAITING items
+  - Press `p` - View PROJECTS
+  - Press `s` - View SOMEDAY/Maybe items
+  - Press `H/L` - Earlier/later dates
+  - Press `q` - Quit agenda
+
+#### Weekly Review
+- `,wr` - Create weekly review checklist
+
+#### Telescope Search (GTD)
+- `,ft` - Find active TODOs (TODO + IN_PROGRESS)
+- `,fT` - Find all tasks (including DONE)
+- `,fn` - Find NEXT actions
+- `,fw` - Find WAITING items
+- `,fp` - Find PROJECTS
+- `,fs` - Find SOMEDAY items
+- `,wf` - Browse all journal entries
+
+#### Task States
+- **TODO** - Captured but not clarified
+- **NEXT** - Next actionable task (single concrete action)
+- **WAITING** - Waiting on someone else
+- **SOMEDAY** - Maybe/someday list
+- **PROJECT** - Multi-step outcome
+- **IN_PROGRESS** - Currently working on
+- **DONE** - Completed
+- **CANCELLED** - Cancelled
+
+#### Context Tags
+Quick-add with `Ctrl+C Ctrl+C` on a heading:
+- `@home` (h), `@work` (w), `@computer` (c), `@phone` (p), `@errands` (e), `@online` (o)
+
+#### Org File Structure
+- `~/orgfiles/journal/*.org` - Daily journals with tasks and logs
+- `~/orgfiles/refile.org` - Inbox for quick captures (process to zero weekly)
+- `~/orgfiles/projects.org` - Active multi-step projects
+- `~/orgfiles/reference.org` - Reference material and notes (no actions)
+- `~/orgfiles/areas.org` - Life areas and responsibilities
+- `~/orgfiles/journal/weekly-review-*.org` - Weekly review checklists
+
+#### GTD Workflow
+1. **Capture**: Quick capture throughout the day
+   - Anything that pops up → `,cc` → `i` or `t` (goes to inbox)
+   - If you know it's a project → `,cc` → `p` (goes to projects.org)
+   - Reference info → `,cc` → `r` (goes to reference.org)
+   - When you need it scheduled today → `,cc` → `n` (NEXT action)
+2. **Clarify**: Daily or weekly review inbox (`,wi`)
+   - For each item ask: "What is it? Is it actionable?"
+3. **Organize**: Process each inbox item (use `,r` to refile)
+   - Single action → Change to NEXT, add context tag, refile to today or specific date
+   - Multiple steps → Change to PROJECT, refile to projects.org, create NEXT actions
+   - Reference info → Refile to reference.org
+   - Waiting on someone → Change to WAITING
+   - Not now → Change to SOMEDAY
+   - Not needed → Delete
+4. **Reflect**: Weekly run `,wr` for review, process inbox to zero
+5. **Engage**: Use `,fn` to see NEXT actions, pick one and work on it
+
 ### Hammerspoon (macOS Window Management)
 **Hyper Key**: `Alt+Ctrl+Cmd+Shift`
 

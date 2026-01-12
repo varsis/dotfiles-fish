@@ -92,6 +92,9 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 
+keymap("n", "<A-j>", ":m .+1<CR>==", opts)
+keymap("n", "<A-k>", ":m .-2<CR>==", opts)
+
 -- If I visually select words and paste from clipboard, don't replace my
 -- clipboard with the selected word, instead keep my old word in the
 -- clipboard
