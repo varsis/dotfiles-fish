@@ -321,6 +321,20 @@ return {
         end,
         desc = "Find SOMEDAY items",
       },
+      {
+        "<leader>fg",
+        function()
+          require("telescope.builtin").live_grep(ivy())
+        end,
+        desc = "Live grep",
+      },
+      {
+        "<leader>gs",
+        function()
+          require("telescope.builtin").git_status(ivy())
+        end,
+        desc = "Git status",
+      },
     }
   end,
 }
