@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+if [ -f "nx.json" ] || [ -f "workspace.json" ]; then
+    [ $# -eq 0 ] && echo "Usage: nxtestcov <project-name>" && exit 1
+    nx test "$1" --coverage
+    open coverage/lcov-report/index.html 2>/dev/null || xdg-open coverage/lcov-report/index.html
+else
+    npm test -- --coverage
+    open coverage/lcov-report/index.html 2>/dev/null || xdg-open coverage/lcov-report/index.html
+fi

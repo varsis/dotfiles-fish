@@ -1,0 +1,5 @@
+#!/bin/sh
+FILE_PATH="$1"
+if [ -f "nx.json" ] || [ -f "workspace.json" ]; then
+    echo "$FILE_PATH" | grep -oE '(apps|libs)/[^/]+' | cut -d'/' -f2
+fi

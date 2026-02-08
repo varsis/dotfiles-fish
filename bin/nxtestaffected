@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+[ ! -f "nx.json" ] && [ ! -f "workspace.json" ] && echo "Not an NX workspace" && exit 1
+
+BASE="${1:-$(git config --get init.defaultBranch || echo "origin/main")}"
+nx affected:test --base="$BASE" --coverage

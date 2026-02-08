@@ -43,6 +43,12 @@ link $PWD/ssh/* ~/.ssh/
 link $PWD/nvim ~/.config/nvim
 nvim --headless "+Lazy! sync" +qa &>/dev/null
 
+# npm global packages
+if command -v npm &>/dev/null; then
+  echo "Installing global npm packages..."
+  npm install -g tsx
+fi
+
 # other apps
 link $PWD/.editorconfig ~/.editorconfig
 link $PWD/hammerspoon/init.lua ~/.hammerspoon/init.lua

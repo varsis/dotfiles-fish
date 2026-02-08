@@ -64,6 +64,16 @@ status is-interactive; and begin
     alias kx kubectx
     alias sk 'kubectl -n kube-system'
 
+    # nx
+    alias nxb 'nx build'
+    alias nxr 'nx run'
+    alias nxs 'nx serve'
+    alias nxt 'nx test'
+    alias nxta 'nx affected:test'
+    alias nxba 'nx affected:build'
+    alias nxg 'nx graph'
+    alias nxl 'nx lint'
+
     # files
     alias fd 'fd --hidden'
     alias la 'lsd -A'

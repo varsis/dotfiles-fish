@@ -16,3 +16,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     vim.cmd("silent! /^\\(import\\|const.*require\\)\\@!")
   end,
 })
+
+-- Source TypeScript F-key bindings
+dofile(vim.fn.stdpath("config") .. "/after/ftplugin/typescript.lua")

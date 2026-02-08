@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+if [ -f "nx.json" ] || [ -f "workspace.json" ]; then
+    [ $# -eq 0 ] && echo "Usage: nxwatchtest <project-name>" && exit 1
+    fd --type file . | entr -r nx test "$1" --watch --coverage
+else
+    fd --type file . | entr -r npm test -- --watch --coverage
+fi
