@@ -37,6 +37,12 @@ hotkey.bind(hyper, ";", function()
   hs.window.focusedWindow():moveToUnit({ 0, 0, 1, 1 })
 end)
 
+-- move to next screen
+hotkey.bind(hyper, "N", function()
+  local win = hs.window.focusedWindow()
+  win:moveToScreen(win:screen():next())
+end)
+
 -- centralize at 80% screen size
 hotkey.bind(hyper, "'", function()
   local win = hs.window.focusedWindow()
