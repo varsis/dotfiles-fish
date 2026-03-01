@@ -9,6 +9,7 @@ return {
     -- Adapters
     "nvim-neotest/neotest-go",
     "nvim-neotest/neotest-jest",
+    "marilari88/neotest-vitest",
   },
   config = function()
     require("neotest").setup({
@@ -24,6 +25,7 @@ return {
             return vim.fn.getcwd()
           end,
         }),
+        require("neotest-vitest"),
       },
       summary = {
         open = "botright vsplit | vertical resize 50",
