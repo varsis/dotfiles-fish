@@ -37,6 +37,10 @@ The description of the change should be user-facing, describing what features we
 
 - When creating branches, prefix them with the appropriate scope (feat, fix, etc ) followed by slash to indicate what the intention is
 
+## Code Search
+
+- Prefer LSP tools over Grep/ripgrep when possible for code navigation (go-to-definition, find-references, hover, etc.)
+
 ## Plans
 
 - At the end of each plan, give me a list of unresolved questions if any. Make the questions extremely concise. Sacrifice grammar for the sake of concision.
