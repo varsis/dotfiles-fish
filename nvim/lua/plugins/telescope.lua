@@ -322,6 +322,16 @@ return {
         desc = "Find SOMEDAY items",
       },
       {
+        "<leader>wg",
+        function()
+          require("telescope.builtin").live_grep(ivy({
+            prompt_title = "Search Org Files",
+            search_dirs = { vim.fn.expand("~/orgfiles") },
+          }))
+        end,
+        desc = "Search all org files",
+      },
+      {
         "<leader>fg",
         function()
           require("telescope.builtin").live_grep(ivy())

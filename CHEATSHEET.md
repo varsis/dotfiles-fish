@@ -224,7 +224,7 @@
 
 | Key   | Action  |
 | ----- | ------- |
-| `,aa` | Agenda  |
+| `,aa` | Agenda (n=NEXT, w=WAITING, p=Projects, s=Someday) |
 | `,cc` | Capture |
 
 ### Capture Templates
@@ -247,6 +247,24 @@
 | `,d` | Mark TODO as DONE |
 | `,w` | Finalize capture  |
 | `,r` | Refile capture    |
+
+### Search
+
+| Key   | Action                          |
+| ----- | ------------------------------- |
+| `,wg` | Search all org files (live grep) |
+| `,wo` | Browse all org files            |
+| `,wf` | Browse journal entries          |
+| `,wR` | Browse weekly reviews           |
+| `,wi` | Open inbox (refile.org)         |
+| `,fh` | Search headings                 |
+| `,ft` | Find TODOs / IN_PROGRESS        |
+| `,fT` | Find all tasks (inc. DONE)      |
+| `,fn` | Find NEXT actions               |
+| `,fw` | Find WAITING items              |
+| `,fp` | Find PROJECTs                   |
+| `,fs` | Find SOMEDAY items              |
+| `,li` | Insert link                     |
 
 ### TODO States
 
