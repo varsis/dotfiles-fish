@@ -208,6 +208,52 @@
 
 ---
 
+## Neovim — Org / GTD
+
+### Journal
+
+| Key         | Action                     |
+| ----------- | -------------------------- |
+| `,ww`       | Open today's journal       |
+| `,wt`       | Create journal for date    |
+| `,wT`       | Add todo for specific date |
+| `,wr`       | Create weekly review       |
+| `C-Up/Down` | Prev/next journal file     |
+
+### Capture & Agenda
+
+| Key   | Action  |
+| ----- | ------- |
+| `,aa` | Agenda  |
+| `,cc` | Capture |
+
+### Capture Templates
+
+| Key | Template              |
+| --- | --------------------- |
+| `i` | Inbox (quick capture) |
+| `t` | Todo to inbox         |
+| `n` | Next action (today)   |
+| `j` | Journal entry (today) |
+| `p` | Project               |
+| `r` | Reference note        |
+| `m` | Meeting notes (today) |
+
+### In `.org` files
+
+| Key  | Action            |
+| ---- | ----------------- |
+| `,x` | Toggle checkbox   |
+| `,d` | Mark TODO as DONE |
+| `,w` | Finalize capture  |
+| `,r` | Refile capture    |
+
+### TODO States
+
+`TODO` → `NEXT` → `IN_PROGRESS` → `WAITING` → `SOMEDAY` → `PROJECT` → `DONE` / `CANCELLED`
+
+---
+
 ## Git Aliases (in `.gitconfig`)
 
 | Alias         | Action                    |
