@@ -90,6 +90,13 @@
 
 [merge]
 	conflictStyle = "zdiff3"
+	tool = nvimdiff
+
+[mergetool]
+	keepBackup = false
+
+[mergetool "nvimdiff"]
+	cmd = nvim -d "$LOCAL" "$MERGED" "$REMOTE" -c "wincmd w" -c "wincmd J"
 
 [pull]
 	ff = "only"

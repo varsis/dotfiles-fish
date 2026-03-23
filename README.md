@@ -53,8 +53,8 @@ version here!
 
 #### Git Integration
 
-- `,gs` - Open Git status in new tab
-- `<F9>` - Git mergetool
+- `,gs` - Git status (Telescope)
+- `<F9>` - Git mergetool (nvimdiff)
 
 #### Plugin-Specific
 
@@ -63,6 +63,21 @@ version here!
 - `,oa` - Ask opencode about cursor/selection
 - `,jf` - Format JSON with jq
 - `,x` - Toggle markdown checkbox
+
+#### Telescope
+
+- `,ff` - Find files (includes hidden)
+- `,of` - Recent files (cwd)
+- `,fb` - Buffers
+- `,fr` - Resume last picker
+- `,fg` - Live grep
+- `,lg` - Live grep (multi-file)
+- `,/` - Fuzzy find in current buffer
+- `,fH` - Help tags
+- `,fc` - Commands
+- `,xx` - Diagnostics
+- `,fj` - Harpoon marks
+- `,ghi` - GitHub issues
 
 ### Org-mode & GTD (Getting Things Done)
 

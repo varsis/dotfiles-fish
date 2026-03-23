@@ -103,7 +103,7 @@ return {
         end,
       },
       {
-        "<leader>fh",
+        "<leader>fH",
         function()
           require("telescope.builtin").help_tags(ivy())
         end,

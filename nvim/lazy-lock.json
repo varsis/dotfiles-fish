@@ -7,6 +7,7 @@
   "bufdelete.nvim": { "branch": "master", "commit": "f6bcea78afb3060b198125256f897040538bcb81" },
   "conform.nvim": { "branch": "master", "commit": "238f542a118984a88124fc915d5b981680418707" },
   "copilot.lua": { "branch": "master", "commit": "5ace9ecd0db9a7a6c14064e4ce4ede5b800325f3" },
+  "csvview.nvim": { "branch": "main", "commit": "7022e18a0fbae9aecf99a3ba02b2a541edc2b8a1" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "dressing.nvim": { "branch": "master", "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },

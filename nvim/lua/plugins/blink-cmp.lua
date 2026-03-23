@@ -14,11 +14,10 @@ return {
         function(cmp)
           if cmp.snippet_active() then
             return cmp.snippet_forward()
-          else
-            return cmp.accept()
+          elseif cmp.is_visible() then
+            return cmp.select_and_accept()
           end
         end,
-        "snippet_forward",
         "fallback",
       },
       ["<S-Tab>"] = { "snippet_backward", "fallback" },
@@ -143,7 +142,7 @@ return {
       accept = { auto_brackets = { enabled = true } },
 
       keyword = {
-        range = "full",
+        range = "prefix",
       },
 
       trigger = {
