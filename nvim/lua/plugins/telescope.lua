@@ -20,7 +20,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-github.nvim",
     "nvim-orgmode/orgmode",
-    "telescope-orgmode.nvim",
+    "nvim-orgmode/telescope-orgmode.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
